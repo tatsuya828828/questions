@@ -6,7 +6,7 @@
 			<h2 style="font-size: 50px;">ようこそ</h2>
 			<div class="row" style="padding-top: 10%;">
 				<div class="col-lg-6">
-					<%= link_to '練習を始める', quests_plays_path(@quests), class: "btn  btn-primary form-control", style: "color: #fff" %>
+					<%= link_to '練習を始める', {controller: "plays", action: "create", score: 0}, method: :post, class: "btn  btn-primary form-control", style: "color: #fff" %>
 				</div>
 				<div class="col-lg-6">
 					<%= link_to "質問一覧", questions_path, class: "btn btn-success form-control", style: "color: #fff" %>
