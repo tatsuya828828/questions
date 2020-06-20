@@ -17,6 +17,6 @@ ja:
         display_entries: "<b>%{total}</b>件中の質問を表示しています <b>%{first}~%{last}件</b>"
       one_page:
         display_entries:
-          one: "<b>%{count}</b>レコード表示中です %{entry_name}"
-          other: "<b>%{count}</b>レコード表示中です %{entry_name}"
-          zero: "レコードが見つかりませんでした %{entry_name}"
+          one: "<b>%{count}</b>件表示中です"
+          other: "<b>%{count}</b>件表示中です"
+          zero: "質問が見つかりませんでした"
