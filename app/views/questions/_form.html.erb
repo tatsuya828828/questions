@@ -12,26 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :quest %>
-    <%= form.text_field :quest %>
+    <%= form.label :quest, "質問" %>
+    <%= form.text_field :quest, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :answer %>
-    <%= form.text_area :answer %>
+    <%= form.label :answer, "答え" %>
+    <%= form.text_area :answer, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :rate %>
-    <%= form.number_field :rate %>
+    <%= form.label :rate, "評価" %>
+    <%= form.number_field :rate, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :undisplay_switch %>
-    <%= form.text_field :undisplay_switch %>
+    <%= form.radio_button :undisplay_switch, "display" %>
+    <%= form.label :display, "表示" %>
+
+    <%= form.radio_button :undisplay_switch, "undisplay" %>
+    <%= form.label :undisplay, "非表示" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "完了", class: " btn btn-success form-control", style: "color: #fff;" %>
   </div>
 <% end %>
