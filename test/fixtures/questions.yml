@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quest: MyString
+  answer: MyText
+  rate: 1
+  undisplay_switch: MyString
+
+two:
+  quest: MyString
+  answer: MyText
+  rate: 1
+  undisplay_switch: MyString
