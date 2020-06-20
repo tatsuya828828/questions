@@ -1,2 +1,17 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-3">
+		</div>
+		<div class="col-lg-6" style="text-align: center; padding-top: 15%;">
+			<h2 style="font-size: 50px;">ようこそ</h2>
+			<div class="row" style="padding-top: 10%;">
+				<div class="col-lg-6">
+					<%= link_to '練習を始める', quests_plays_path(@quests), class: "btn  btn-primary form-control", style: "color: #fff" %>
+				</div>
+				<div class="col-lg-6">
+					<%= link_to "質問一覧", questions_path, class: "btn btn-success form-control", style: "color: #fff" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

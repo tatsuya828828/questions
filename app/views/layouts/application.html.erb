@@ -10,6 +10,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Navber" aria-expanded="false">
+          <span class="sr-only">ナビゲーションの切替</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to 'Qustions', root_path, class: "navbar-brand" %>
+      </div><!-- /.navbar-header -->
+      <div class="collapse navbar-collapse" id="Navber">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'ホーム', root_path %></li>
+          <li><%= link_to '練習をはじめる', root_path %></li>
+          <li><%= link_to '質問一覧', questions_path %></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
+    <div style="margin-top: 50px;">
+      <%= yield %>
+    </div>
   </body>
 </html>
