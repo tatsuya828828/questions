@@ -1,0 +1,6 @@
+ja:
+  enums:
+    question:
+      undisplay_switch:
+        display: "表示"
+        undisplay: "非表示"
