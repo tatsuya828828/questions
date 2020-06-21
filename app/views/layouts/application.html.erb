@@ -24,7 +24,7 @@
       <div class="collapse navbar-collapse" id="Navber">
         <ul class="nav navbar-nav">
           <li><%= link_to 'ホーム', root_path %></li>
-          <li><%= link_to '練習をはじめる', root_path %></li>
+          <li><%= link_to '練習を始める', {controller: "plays", action: "create", score: 0}, method: :post %></li>
           <li><%= link_to '質問一覧', questions_path %></li>
           <li><%= link_to '練習履歴', plays_path %></li>
         </ul>

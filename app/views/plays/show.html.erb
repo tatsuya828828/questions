@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3"></div>
+		<div class="col-lg-6">
+			<h1><%= @play.id %>回目の質問一覧</h1>
+		    <table class="table">
+			    <thead>
+			      <tr>
+			        <th>No.</th>
+			        <th>質問</th>
+			        <th></th>
+			      </tr>
+			    </thead>
+		    	<tbody>
+			        <% num = 0 %>
+			        <% @play.histories.each do |history| %>
+			        	<tr>
+				            <td><%= link_to num+=1, detail_plays_path(id: @play, history_id: history) %></td>
+				            <td><%= link_to history.quest, detail_plays_path(id: @play, history_id: history) %></td>
+				        </tr>
+			        <% end %>
+			    </tbody>
+		    </table>
+		    <%= link_to '戻る', plays_path, class: "btn btn-danger form-control", style: "color: #fff;" %>
+		</div>
+	</div>
+</div>

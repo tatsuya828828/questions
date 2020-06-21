@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3"></div>
+		<div class="col-lg-6">
+			<h1>練習履歴一覧</h1>
+			<% num = 0 %>
+			<table class="table">
+				<tr>
+					<th>NO.</th>
+					<th>日付</th>
+					<th>スコア</th>
+				</tr>
+				<% @plays.each do |play| %>
+					<tr>
+						<td><%= link_to "#{num+=1}回目", play_path(play) %></td>
+						<td><%= play.created_at.strftime("%Y年%-m月%-d日 %-H時%M分") %></td>
+						<td><%= play.score %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>
