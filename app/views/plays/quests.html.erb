@@ -2,11 +2,32 @@
 	<div class="row">
 		<div class="col-lg-3"></div>
 		<div class="col-lg-6">
-			<% @quests.each do |quest| %>
-				<tr>
-					<td><%= quest.quest %></td>
-				</tr>
+			<h1>質問練習</h1>
+			<%= page_entries_info @quests %>
+      		<% num = 0 %>
+      		<% @quests.each do |quest| %>
+	      		<table class="table">
+			        <thead>
+			          <tr>
+			            <th>No.<%= num+=1 %>　<%= quest.quest %></th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			            <tr>
+			              <td><%= quest.answer %></td>
+			            </tr>
+		        	</tbody>
+		     	</table>
+		     	<div class="row" style="margin-bottom: 30px;">
+		        		<div class="col-lg-6">
+		        			<%= link_to '正解', root_path, class: "btn btn-primary form-control", style: "color: #fff;" %>
+		        		</div>
+		        		<div class="col-lg-6">
+		        			<%= link_to '不正解', root_path, class: "btn btn-danger form-control", style: "color: #fff;" %>
+		        		</div>
+		        	</div>
 			<% end %>
+			<%= paginate @quests %>
 		</div>
 	</div>
 </div>

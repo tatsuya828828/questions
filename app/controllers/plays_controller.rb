@@ -2,7 +2,7 @@ class PlaysController < ApplicationController
 
   def quests
   	play = Play.find(params[:id])
-  	@quests = play.histories
+  	@quests = play.histories.page(params[:page])
   end
 
   def index
