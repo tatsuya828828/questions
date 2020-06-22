@@ -29,10 +29,12 @@ class PlaysController < ApplicationController
   end
 
   def update
-  	play = Play.find(params[:id])
+    hisrory = History.find(params[:id])
+    history.update(collect_status: params[:collect_status])
+  	play = Play.find_by(id: history.play_id)
   	collects = play.histories.where(collect_status: "collected")
   	score = collects.count
   	play.update(score: score)
-  	redirect_to quests_plays_path
+  	redirect_back(fallback_location: root_path)
   end
 end
