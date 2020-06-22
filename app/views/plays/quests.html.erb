@@ -9,23 +9,46 @@
 	      		<table class="table">
 			        <thead>
 			          <tr>
-			            <th>No.<%= num+=1 %>　<%= quest.quest %></th>
+			            <th>
+			            	No.<%= num+=1 %>　<%= quest.quest %>
+			            	<% if quest.collect_status == "collected" %>
+			            		<span style="background-color: #337AB7; color: #fff; padding: 3px;">
+			            			正解
+			            		</span>
+			            	<% elsif quest.collect_status == "uncollect" %>
+			            		<span style="background-color: #D9534F; color: #fff; padding: 3px;">
+			            			不正解
+			            		</span>
+			            	<% else %>
+			            		<span style="background-color: #666666; color: #fff; padding: 3px;">
+			            			未回答
+			            		</span>
+			            	<% end %>
+			            </th>
 			          </tr>
 			        </thead>
 			        <tbody>
 			            <tr>
-			              <td><%= quest.answer %></td>
+			              	<td class="btn-group" style="width: 100%;">
+								<button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown" aria-expanded="false">
+									答え
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" style="padding: 5px;">
+									<%= quest.answer %>
+								</ul>
+							</td>
 			            </tr>
 		        	</tbody>
 		     	</table>
-		     	<div class="row" style="margin-bottom: 30px;">
-		        		<div class="col-lg-6">
-		        			<%= link_to '正解', root_path, class: "btn btn-primary form-control", style: "color: #fff;" %>
-		        		</div>
-		        		<div class="col-lg-6">
-		        			<%= link_to '不正解', root_path, class: "btn btn-danger form-control", style: "color: #fff;" %>
-		        		</div>
-		        	</div>
+		     	<div class="row">
+	        		<div class="col-lg-6">
+	        			<%= link_to '正解', play_history_path(play_id: quest.play_id, id: quest.id, collect_status: "collected"), method: :put, remote: true, class: "btn btn-primary form-control", style: "color: #fff;" %>
+	        		</div>
+	        		<div class="col-lg-6">
+	        			<%= link_to '不正解', play_history_path(play_id: quest.play_id, id: quest.id, collect_status: "uncollect"), method: :put, remote: true, class: "btn btn-danger form-control", style: "color: #fff;" %>
+	        		</div>
+		        </div>
 			<% end %>
 			<%= paginate @quests %>
 		</div>

@@ -9,12 +9,14 @@
 					<th>NO.</th>
 					<th>日付</th>
 					<th>スコア</th>
+					<th></th>
 				</tr>
 				<% @plays.each do |play| %>
 					<tr>
 						<td><%= link_to "#{num+=1}回目", play_path(play) %></td>
 						<td><%= play.created_at.strftime("%Y年%-m月%-d日 %-H時%M分") %></td>
 						<td><%= play.score %></td>
+						<td><%= link_to '練習する', quests_plays_path(play), class: "btn btn-primary form-control", style: "color: #fff;" %></td>
 					</tr>
 				<% end %>
 			</table>
