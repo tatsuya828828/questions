@@ -18,23 +18,24 @@ class PlaysController < ApplicationController
   end
 
   def create
-    @play = Play.new(score: params[:score])
-    @play.save
-  	@questions = Question.order("RANDOM()").limit(50)
-  	@questions.each do |question|
-  		@history = History.new(quest: question.quest, answer: question.answer, play_id: @play.id, collect_status: "before_collect")
-  		@history.save
+    play = Play.new(score: params[:score])
+    play.save
+
+    # デフォルトで登録する質問
+    default_questions = Question.where(id: [1,2,3,4,5])
+    default_questions.each do |default_question|
+      history = History.new(quest: default_question.quest, answer: default_question.answer, play_id: play.id, collect_status: "before_collect")
+      history.save
+    end
+
+    # ランダムで登録する質問
+    questions = Question.where.not(id: [1,2,3,4,5])
+  	questions = questions.order("RANDOM()").limit(45)
+  	questions.each do |question|
+  		history = History.new(quest: question.quest, answer: question.answer, play_id: play.id, collect_status: "before_collect")
+  		history.save
   	end
-  	redirect_to quests_plays_path(@play)
+  	redirect_to quests_plays_path(play)
   end
 
-  def update
-    hisrory = History.find(params[:id])
-    history.update(collect_status: params[:collect_status])
-  	play = Play.find_by(id: history.play_id)
-  	collects = play.histories.where(collect_status: "collected")
-  	score = collects.count
-  	play.update(score: score)
-  	redirect_back(fallback_location: root_path)
-  end
 end
