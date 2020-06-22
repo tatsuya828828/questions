@@ -4,13 +4,12 @@
 		<div class="col-lg-6">
 			<h1>質問練習</h1>
 			<%= page_entries_info @quests %>
-      		<% num = 0 %>
       		<% @quests.each do |quest| %>
 	      		<table class="table">
 			        <thead>
 			          <tr>
 			            <th>
-			            	No.<%= num+=1 %>　<%= quest.quest %>
+			            	<%= quest.quest %>
 			            	<% if quest.collect_status == "collected" %>
 			            		<span style="background-color: #337AB7; color: #fff; padding: 3px;">
 			            			正解
