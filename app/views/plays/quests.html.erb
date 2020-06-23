@@ -50,6 +50,11 @@
 		        </div>
 			<% end %>
 			<%= paginate @quests %>
+
+			<% if @answers.find_by(collect_status: "before_collect") %>
+			<% else %>
+				<h2><%= link_to '結果を見る', result_plays_path(@play), class: "btn btn-success form-control", style: "color: #fff;" %></h2>
+			<% end %>
 		</div>
 	</div>
 </div>
