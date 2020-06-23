@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-3">
+		</div>
+		<div class="col-lg-6" style="text-align: center; padding-top: 15%;">
+			<h2 style="font-size: 50px;">結果は、<%= @play.score %>点でした</h2>
+			<div class="row" style="padding-top: 10%;">
+				<div class="col-lg-6">
+					<%= link_to '練習履歴へ', plays_path, class: "btn  btn-primary form-control", style: "color: #fff" %>
+				</div>
+				<div class="col-lg-6">
+					<%= link_to "ホームへ", root_path, class: "btn btn-success form-control", style: "color: #fff" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
