@@ -5,9 +5,9 @@ class PlaysController < ApplicationController
   end
 
   def quests
-  	play = Play.find(params[:id])
-  	@quests = play.histories.page(params[:page])
-    @answers = History.where(play_id: play.id)
+  	@play = Play.find(params[:id])
+  	@quests = @play.histories.page(params[:page])
+    @answers = History.where(play_id: @play.id)
   end
 
   def index
