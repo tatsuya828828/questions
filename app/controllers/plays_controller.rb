@@ -35,7 +35,7 @@ class PlaysController < ApplicationController
 
     # ランダムで登録する質問
     questions = Question.where.not(id: [1,2,3,4,5])
-  	questions = questions.order("RANDOM()").limit(45)
+  	questions = questions.order("RANDOM()").limit(55)
   	questions.each do |question|
   		history = History.new(quest: question.quest, answer: question.answer, play_id: play.id, collect_status: "before_collect")
   		history.save
