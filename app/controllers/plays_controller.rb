@@ -43,4 +43,12 @@ class PlaysController < ApplicationController
   	redirect_to quests_plays_path(play)
   end
 
+  def reset
+    play = Play.find(params[:id])
+    histories = play.histories
+    histories.update_all(collect_status: "before_collect")
+    play.update(score: 0)
+    redirect_back(fallback_location: root_path)
+  end
+
 end

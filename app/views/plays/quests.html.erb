@@ -55,7 +55,7 @@
 			<% else %>
 				<h2><%= link_to '結果を見る', result_plays_path(@play), class: "btn btn-success form-control", style: "color: #fff;" %></h2>
 			<% end %>
-			<%= link_to "リセットする", root_path, class: "btn btn-warning form-control", style: "color: #fff;" %>
+			<%= link_to "リセットする", reset_plays_path(@play), method: :put, class: "btn btn-warning form-control", style: "color: #fff;" %>
 		</div>
 	</div>
 </div>
