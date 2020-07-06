@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-3"></div>
 		<div class="col-lg-6">
-			<h1>質問練習</h1>
+			<h1>質問練習<span style="padding-left: 70%; color: red;"><%= @play.score %>/100<span></h1>
 			<%= page_entries_info @quests %>
       		<% @quests.each do |quest| %>
 	      		<table class="table">
@@ -55,7 +55,7 @@
 			<% else %>
 				<h2><%= link_to '結果を見る', result_plays_path(@play), class: "btn btn-success form-control", style: "color: #fff;" %></h2>
 			<% end %>
-			<%= link_to "リセットする", root_path, class: "btn btn-warning form-control" %>
+			<%= link_to "リセットする", root_path, class: "btn btn-warning form-control", style: "color: #fff;" %>
 		</div>
 	</div>
 </div>
