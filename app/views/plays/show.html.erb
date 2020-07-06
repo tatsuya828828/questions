@@ -8,7 +8,7 @@
 			      <tr>
 			        <th>No.</th>
 			        <th>質問</th>
-			        <th></th>
+			        <th>回答履歴</th>
 			      </tr>
 			    </thead>
 		    	<tbody>
@@ -17,6 +17,19 @@
 			        	<tr>
 				            <td><%= link_to num+=1, detail_plays_path(id: @play, history_id: history) %></td>
 				            <td><%= link_to history.quest, detail_plays_path(id: @play, history_id: history) %></td>
+				            <td style="width: 15%;"><% if history.collect_status == "collected" %>
+			            		<span style="background-color: #337AB7; color: #fff; padding: 3px;">
+			            			正解
+			            		</span>
+			            	<% elsif history.collect_status == "uncollect" %>
+			            		<span style="background-color: #D9534F; color: #fff; padding: 3px;">
+			            			不正解
+			            		</span>
+			            	<% else %>
+			            		<span style="background-color: #666666; color: #fff; padding: 3px;">
+			            			未回答
+			            		</span>
+			            	<% end %></td>
 				        </tr>
 			        <% end %>
 			    </tbody>
